@@ -14,5 +14,34 @@ Return the final string after all such duplicate removals have been made. It is 
  * @return {string}
  */
 const removeDuplicates = function (s, k) {
+    if (!s || k <= 1) return ''
+    const sarr = [s[0]]
+    const narr = [1]
+    let current = ''
+    let index = 0
+    const len = s.length
+    for (let i = 1; i < len; i++){
+        if (sarr[index] === s[i]) {
+            narr[index]++
+            if (narr[index] === k) {
+                sarr.pop()
+                narr.pop()
+                index--
 
+            }
+        } else {
+            sarr.push(s[i])
+            narr.push(1)
+            index++
+        }
+    }
+    
+    const len2 = sarr.length
+    let result = ''
+    for (let i = 0; i < len; i++){
+        if(!sarr[i]) continue
+        result += sarr[i].repeat(narr[i])
+        }
+    
+    return result
 }
