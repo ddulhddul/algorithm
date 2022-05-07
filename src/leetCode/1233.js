@@ -16,5 +16,36 @@ For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty
  * @return {string[]}
  */
 const removeSubfolders = function (folder) {
+  const len = folder.length
+const arr = []
+const arrlen = []
+foo: for (let i = 0; i < len; i++) {
+  const value = folder[i] + '/'
+  const valuelen = value.length
+  const len2 = arr.length
+  let bool = false
+  for (let j = 0; j < len2; j++) {
+    if (arrlen[j] >= valuelen) {
+      if (arr[j].startsWith(value)) {
+        arr[j] = value
+        arrlen[j] = valuelen
+        bool = true
+        continue foo
+      }
+    } else if (value.startsWith(arr[j])) {
+      bool = true
+      continue foo
+    }
+    
+    
+  }
+  if (!bool) {
+    arr.push(value)
+    arrlen.push(valuelen)
+  }
+}
+return arr.map((obj) => {
+  return obj.slice(0, -1)
+})
 
 }
