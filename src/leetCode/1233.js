@@ -17,35 +17,35 @@ For example, "/leetcode" and "/leetcode/problems" are valid paths while an empty
  */
 const removeSubfolders = function (folder) {
   const len = folder.length
-const arr = []
-const arrlen = []
-foo: for (let i = 0; i < len; i++) {
-  const value = folder[i] + '/'
-  const valuelen = value.length
-  const len2 = arr.length
-  let bool = false
-  for (let j = 0; j < len2; j++) {
-    if (arrlen[j] >= valuelen) {
-      if (arr[j].startsWith(value)) {
-        arr[j] = value
-        arrlen[j] = valuelen
-        bool = true
+  const arr = []
+  const arrlen = []
+  // eslint-disable-next-line no-labels
+  foo: for (let i = 0; i < len; i++) {
+    const value = folder[i] + '/'
+    const valuelen = value.length
+    for (let j = arr.length - 1; j >= 0; j--) {
+      if (arrlen[j] >= valuelen) {
+        if (arr[j].startsWith(value)) {
+          arr.splice(j, 1)
+          arrlen.splice(j, 1)
+          // eslint-disable-next-line no-labels
+          continue
+        }
+      } else if (value.startsWith(arr[j])) {
+        // eslint-disable-next-line no-labels
         continue foo
       }
-    } else if (value.startsWith(arr[j])) {
-      bool = true
-      continue foo
     }
-    
-    
-  }
-  if (!bool) {
     arr.push(value)
     arrlen.push(valuelen)
   }
+  return arr.map((obj) => {
+    return obj.slice(0, -1)
+  })
 }
-return arr.map((obj) => {
-  return obj.slice(0, -1)
-})
 
-}
+console.log(
+  removeSubfolders(
+    ['/aa/ab/ac/ae', '/aa/ab/af/ag', '/ap/aq/ar/as', '/ap/aq/ar', '/ap/ax/ay/az', '/ap', '/ap/aq/ar/at', '/aa/ab/af/ah', '/aa/ai/aj/ak', '/aa/ai/am/ao']
+  )
+)
