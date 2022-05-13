@@ -34,7 +34,7 @@ const maxUncrossedLines = function (nums1, nums2) {
     else arr[i][std] = (!arr[i - 1] ? 0 : arr[i - 1][std]) || 0
   }
   while (++std < len1) {
-    // console.log('std', std)
+    console.log('std', std)
     for (let i = std; i < len2; i++) {
       if (nums1[std] === nums2[i]) {
         arr[std][i] = arr[std - 1][i - 1] + 1
