@@ -14,18 +14,15 @@ Return the maximum number of consecutive floors without a special floor.
  * @return {number}
  */
 const maxConsecutive = function (bottom, top, special) {
-  const arr = []
-  for (let i = special.length - 1; i >= 0; i--) {
-    const value = special[i]
-    arr[value] = value
-  }
-  arr[top + 1] = top + 1
-  const arr2 = arr.filter(data => data)
-  const len2 = arr2.length
+  const arr = special.sort()
+  arr.push(top + 1)
+
+  if (!arr.length) return top - bottom + 1
   let target = bottom - 1
   let result = 0
-  for (let i = 0; i < len2; i++) {
-    const value = arr2[i]
+  const len = arr.length
+  for (let i = 0; i < len; i++) {
+    const value = arr[i]
     result = Math.max(value - target - 1, result)
     target = value
   }
