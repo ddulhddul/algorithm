@@ -6,4 +6,4 @@
 - &check; [1035. Uncrossed Lines](./src/leetCode/1035.js) - [Link](https://leetcode.com/problems/uncrossed-lines/)
 - [1296. Divide Array in Sets of K Consecutive Numbers](./src/leetCode/1296.js) - [Link](https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/)
 - [1915. Number of Wonderful Substrings](./src/leetCode/1915.js) - [Link](https://leetcode.com/problems/number-of-wonderful-substrings/)
-- [2274. Maximum Consecutive Floors Without Special Floors](./src/leetCode/2274.js) - [Link](https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors/)
+- &check; [2274. Maximum Consecutive Floors Without Special Floors](./src/leetCode/2274.js) - [Link](https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors/)

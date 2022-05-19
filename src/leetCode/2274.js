@@ -14,10 +14,12 @@ Return the maximum number of consecutive floors without a special floor.
  * @return {number}
  */
 const maxConsecutive = function (bottom, top, special) {
-  const arr = special.sort()
+  // special.sort()
+  special.sort(function (a, b) {
+    return a - b
+  })
+  const arr = special
   arr.push(top + 1)
-
-  if (!arr.length) return top - bottom + 1
   let target = bottom - 1
   let result = 0
   const len = arr.length
@@ -28,3 +30,6 @@ const maxConsecutive = function (bottom, top, special) {
   }
   return result
 }
+/*
+sort 후, 숫자 계산
+*/
