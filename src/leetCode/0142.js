@@ -20,5 +20,16 @@ Do not modify the linked list.
  * @return {ListNode}
  */
 const detectCycle = function (head) {
+let obj = {}
+let current = head
+while (current) {
+  const key = `${current.val}_${current.next?.val}`
+  if (obj[key]) {
+    return obj[key]
+  }
+  obj[key] = current
+  current = current.next
+}
+return null
 
 }
