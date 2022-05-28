@@ -2,7 +2,7 @@
 ## medium
 - &check; [142. Linked List Cycle II](./src/leetCode/0142.js) - [Link](https://leetcode.com/problems/linked-list-cycle-ii/)
 - &check; [518. Coin Change 2](./src/leetCode/0518.js) - [Link](https://leetcode.com/problems/coin-change-2/)
-- [849. Maximize Distance to Closest Person](./src/leetCode/0849.js) - [Link](https://leetcode.com/problems/maximize-distance-to-closest-person/)
+- &check; [849. Maximize Distance to Closest Person](./src/leetCode/0849.js) - [Link](https://leetcode.com/problems/maximize-distance-to-closest-person/)
 - &check; [1209. Remove All Adjacent Duplicates in String II](./src/leetCode/1209.js) - [Link](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/)
 - &check; [1233. Remove Sub-Folders from the Filesystem](./src/leetCode/1233.js) - [Link](https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/)
 - &check; [1035. Uncrossed Lines](./src/leetCode/1035.js) - [Link](https://leetcode.com/problems/uncrossed-lines/)
