@@ -22,12 +22,11 @@ const getDistances = function (arr) {
     const indexes = [i]
     let indexSum = i
     let indexLen = 1
-    const unitResult = [0]
     for (let j = i + 1; j < len; j++) {
       if (arr[i] !== arr[j]) continue
       // 1. 이전까지 index 처리
       indexes[indexLen] = j
-      unitResult[indexLen] = indexLen * j - indexSum
+      result[j] = indexLen * j - indexSum
       indexSum += j
       indexLen++
     }
@@ -36,8 +35,9 @@ const getDistances = function (arr) {
     const maxIndex = indexes[indexLen - 1]
     for (let k = 0; k < indexLen; k++) {
       const index = indexes[indexLen - k - 1]
-      result[index] = unitResult[indexLen - k - 1] + k * (maxIndex - index) - indexSum
-      indexSum += maxIndex - index
+      const indexDiff = maxIndex - index
+      result[index] = (result[index] || 0) + k * indexDiff - indexSum
+      indexSum += indexDiff
     }
   }
   return result
