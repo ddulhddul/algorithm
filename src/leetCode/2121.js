@@ -19,34 +19,31 @@ const getDistances = function (arr) {
   const len = arr.length
   for (let i = 0; i < len; i++) {
     if (result[i] !== undefined) continue
-    const element = arr[i]
     const indexes = [i]
     let indexSum = i
+    let indexLen = 1
     const unitResult = [0]
     for (let j = i + 1; j < len; j++) {
-      const element2 = arr[j]
-      if (element !== element2) continue
-      // 같은게 나왔을 경우,
+      if (arr[i] !== arr[j]) continue
       // 1. 이전까지 index 처리
-      const indexLen = indexes.length
-      for (let k = 0; k < indexLen; k++) {
-        unitResult[k] += (j - indexes[k])
-      }
-      // 2. 현재 index 추가
       indexes[indexLen] = j
       unitResult[indexLen] = indexLen * j - indexSum
       indexSum += j
+      indexLen++
     }
-    // element 에 대해 result 반영
-    const indexLen = indexes.length
+    // 2. reverse 하여 sum 로직 처리
+    indexSum = 0
+    const maxIndex = indexes[indexLen - 1]
     for (let k = 0; k < indexLen; k++) {
-      result[indexes[k]] = unitResult[k]
+      const index = indexes[indexLen - k - 1]
+      result[index] = unitResult[indexLen - k - 1] + k * (maxIndex - index) - indexSum
+      indexSum += maxIndex - index
     }
   }
   return result
 }
 console.log(
   // getDistances([10, 5, 10, 10, 10])
-  // getDistances([10, 5, 10, 10])
-  getDistances([2, 1, 3, 1, 2, 3, 3])
+  getDistances([10, 5, 10, 10])
+  // getDistances([2, 1, 3, 1, 2, 3, 3])
 )
